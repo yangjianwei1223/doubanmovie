@@ -1,0 +1,30 @@
+<!--pages/staff/staff.wxml-->
+<view style="background-color: #2f2f2f">
+  <view class="banner">
+    <view class="poster">
+      <image mode="scaleToFill" src="{{staff.photos[0].thumb}}"></image>
+    </view>
+    <view class="info">
+      <view class="title">{{staff.name}}</view>
+      <view class="subinfo">{{staff.born_place}}</view>
+      <view class="subinfo">{{staff.birthday}}</view>
+      <view class="subinfo">{{staff.profession}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="summary">
+  {{staff.summary}}
+</view>
+
+<view class="photos">
+  <view wx:for="{{staff.photos}}" wx:key="id">
+    <image mode="aspectFit" src="{{item.thumb}}"></image>
+  </view>
+</view>
+
+<view class="works">
+  <view wx:for="{{staff.works}}" wx:key="id">
+    <view>{{item.subject.title}}</view>
+  </view>
+</view>
