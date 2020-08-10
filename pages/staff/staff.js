@@ -84,6 +84,16 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  preImage: function (event) {
+    let list = event.currentTarget.dataset.imagelist.reduce((curr, item) =>{
+      curr.push(item.image)
+      return curr
+    }, [])
+    wx.previewImage({
+      current: event.currentTarget.dataset.curr,
+      urls: list,
+    })
   }
 })
 _fn = {

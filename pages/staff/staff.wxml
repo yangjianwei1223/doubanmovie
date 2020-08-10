@@ -18,13 +18,20 @@
 </view>
 
 <view class="photos">
-  <view wx:for="{{staff.photos}}" wx:key="id">
-    <image mode="aspectFit" src="{{item.thumb}}"></image>
-  </view>
+  <block wx:for="{{staff.photos}}" wx:key="id">
+    <image mode="aspectFit" src="{{item.thumb}}" data-curr="{{item.image}}" data-imagelist="{{staff.photos}}" bindtap="preImage"></image>
+  </block>
 </view>
 
 <view class="works">
-  <view wx:for="{{staff.works}}" wx:key="id">
-    <view>{{item.subject.title}}</view>
-  </view>
+  <navigator wx:for="{{staff.works}}" wx:key="id" url="../detail/detail?id={{item.subject.id}}" class="section">
+    <view class="img">
+      <image mode="aspectFit" src="{{item.subject.images.small}}"></image>
+    </view>
+    <view class="info">
+      <view>{{item.subject.title}}</view>
+      <view>{{item.subject.original_title}}</view>
+      <view>{{item.subject.rating.average}}</view>
+    </view>
+  </navigator>
 </view>
